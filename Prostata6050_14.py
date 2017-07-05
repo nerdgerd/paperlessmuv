@@ -22,11 +22,13 @@ Date = datetime.date.today()
 prescribed_dose1 = 50                # get from DICOM in the future????
 prescribed_dose2 = 74
 
-with open('Prostata6050_14Gy_patient2.csv') as f:
+filename = askopenfilename()
+
+with open(filename) as f:
     reader = csv.reader(f)
     DVH = list(reader)
 
-my_data = genfromtxt('Prostata6050_14Gy_patient2.csv', delimiter=',',skip_header=3,skip_footer=2)
+my_data = genfromtxt(filename, delimiter=',',skip_header=3,skip_footer=2)
 
 # making numpy of doses and volumes
 #d = np.asmatrix(my_data)
